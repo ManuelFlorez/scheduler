@@ -1,0 +1,29 @@
+buildscript {
+	ext {
+		springBootVersion = '2.2.8.RELEASE'
+		springCloudVersion = 'Hoxton.RC1'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/milestone" }
+		maven { url "https://repo.spring.io/snapshot" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id "org.sonarqube" version "2.6"
+}
+
+sonarqube {
+	properties {
+		property "sonar.host.url", ""
+		property "sonar.login", ""
+		property "sonar.sourceEncoding", "UTF-8"
+		property "sonar.projectKey", "VASS-Deployments-Scheduler"
+	}
+}
+
+apply from: './main.gradle'

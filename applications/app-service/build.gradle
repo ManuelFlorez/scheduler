@@ -1,0 +1,13 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation group: 'org.reactivecommons', name: 'async-commons-starter', version: '0.6.2-beta'
+    implementation 'org.reactivecommons.utils:object-mapper:0.1.0'
+    implementation project(":domain-controller")
+    implementation project(":domain-aif")
+    implementation project(":receivers-scheduler")
+    implementation project(":adapters-async-event-bus")
+    implementation group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.2'
+}
